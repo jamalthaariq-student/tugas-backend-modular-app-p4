@@ -43,3 +43,17 @@ def delete_item(item_id):
     if not is_deleted:
         return jsonify({"status": "fail", "message": "Barang tidak ditemukan"}), 404
     return jsonify({"status": "success", "message": "Data berhasil dihapus"}), 200
+
+@product_bp.route('/api/v1/items', methods=['POST'])
+def add_item():
+    data = request.get_json()
+    result = product_service.add_item(data)
+    
+    # Cek jika ada pelanggaran aturan bisnis dari service
+    if isinstance(result, dict) and "error" in result:
+        return jsonify({"status": "fail", "message": result["error"]}), 400
+        
+    if not result:
+        return jsonify({"status": "fail", "message": "Barang tidak ditemukan"}), 404
+        
+    return jsonify({"status": "success", "message": "Data berhasil ditambahkan", "data": result}), 200

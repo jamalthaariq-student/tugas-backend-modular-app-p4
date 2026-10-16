@@ -35,3 +35,9 @@ def delete_item(item_id):
         items = [i for i in items if i['id'] != item_id]
         return True
     return False
+
+def add_item(name, category, price):
+    global items
+    item = {"id": len(items) + 1, "name": name, "category": category, "price": price}
+    items.append(item)
+    return item

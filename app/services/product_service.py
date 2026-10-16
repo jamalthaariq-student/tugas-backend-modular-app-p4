@@ -37,3 +37,20 @@ def update_item(item_id, data):
 
 def delete_item(item_id):
     return product_repo.delete_item(item_id)
+
+def add_item(data):
+    # --- ATURAN BISNIS ---
+    price = data.get('price')
+    if price is not None and price < 0:
+        return {"error": "Harga barang tidak boleh minus (negatif)!"}
+    
+    name = data.get('name')
+    if name is not None and len(str(name).strip()) == 0:
+        return {"error": "Nama barang tidak boleh kosong!"}
+    # ---------------------
+
+    return product_repo.add_item(
+        name,
+        data.get('category'),
+        price
+    )
