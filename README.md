@@ -60,10 +60,11 @@ pip install flask
 
 ```
 
-  Jika ada file requirements.txt dan sudah ada Flask didalamnya, maka jalankan perintah berikut:
-    ```bash
+Jika ada file requirements.txt dan sudah ada Flask didalamnya, maka jalankan perintah berikut:
+  ```bash
     pip install -r requirements.txt
-    ```
+
+  ```
 
 4. Jalankan aplikasi:
 ```bash
