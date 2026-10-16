@@ -60,7 +60,7 @@ pip install flask
 
 ```
 
-    Jika ada file `requirements.txt`, maka jalankan perintah berikut:
+  Jika ada file `requirements.txt`, maka jalankan perintah berikut:
     ```bash
     pip install -r requirements.txt
     ```
